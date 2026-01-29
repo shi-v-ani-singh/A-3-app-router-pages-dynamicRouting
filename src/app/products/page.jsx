@@ -1,10 +1,12 @@
 import React from 'react'
-import Product from '../../components/Product';
+// import Link from 'next/link'
+import Product from '../../components/Product'
 
 const ProductPage = () => {
+
   return (
     <>
-        <Product />
+      <Product />
     </>
   )
 }

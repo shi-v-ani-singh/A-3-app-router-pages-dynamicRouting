@@ -6,7 +6,7 @@ const products = [
     slug: "denim-skinny-jeans",
     name: "Denim Skinny Jeans",
     price: 49.99,
-    image: " https://images.unsplash.com/photo-1582552938357-32b906df40cb?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "https://images.unsplash.com/photo-1582552938357-32b906df40cb?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Slim-fit denim jeans for a sleek and trendy look.",
   },
   {
@@ -27,7 +27,7 @@ const products = [
     slug: "black-oversized-hoodie",
     name: "Black Oversized Hoodie",
     price: 39.99,
-    image: " https://images.unsplash.com/photo-1708533644535-fcf447ac0cad?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "https://images.unsplash.com/photo-1708533644535-fcf447ac0cad?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Soft and oversized hoodie, perfect for layering and comfort.",
   },
   {
@@ -46,18 +46,20 @@ const products = [
   },
 ]
 
-const Page = ({ params }) => {
-  const { slug}  = params;
+const Page = async({ params }) => {
+  const { slug } = await params;
 
-  const product = products.find((item) => item.slug == slug);
+  const product = products.find((item) => item.slug === slug);
+
 
   if (!product) {
     notFound();
   }
 
-
   return (
-    <div className="max-w-4xl mx-auto p-6 flex flex-col md:flex-row gap-6">
+  <div className="min-h-screen flex items-center justify-center px-4">
+    <div className="max-w-4xl w-full p-6 flex flex-col md:flex-row gap-6 bg-white rounded-lg shadow-sm">
+      
       {/* Image */}
       <img
         src={product.image}
@@ -66,17 +68,19 @@ const Page = ({ params }) => {
       />
 
       {/* Details */}
-      <div className="flex flex-col gap-4">
-        <h1 className="text-3xl font-bold">{product.name}</h1>
+      <div className="flex flex-col gap-4 justify-center">
+        <h1 className="text-3xl font-bold text-gray-500">{product.name}</h1>
         <p className="text-xl text-gray-700">${product.price}</p>
         <p className="text-gray-600">{product.description}</p>
 
-        <button className="w-fit px-6 py-2 bg-black text-white rounded">
+        <button className="w-fit px-6 py-2 bg-black text-white rounded hover:opacity-90 transition">
           Add to Cart
         </button>
       </div>
     </div>
-  )
+  </div>
+)
+
 }
 
 export default Page
