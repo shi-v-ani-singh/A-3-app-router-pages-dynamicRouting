@@ -1,4 +1,4 @@
-# Day 3 – Assignment 3 (Next.js App Router)
+# Day 3 – Assignment 3 (Next.js App Router pages & Dynamic routing )
 
 ## Overview
 This project is a simple multi-page application built using **Next.js App Router**.  
